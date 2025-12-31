@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useRef } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
@@ -17,48 +17,61 @@ const industries = [
 ];
 
 export const IndustriesSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % industries.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + industries.length) % industries.length);
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 320;
+      scrollContainerRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth',
+      });
+    }
   };
 
   return (
     <section className="py-24 bg-secondary">
       <div className="container mx-auto px-6">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-10">
           <div>
-            <p className="section-label mb-4">Industries</p>
+            {/* Section Label with Arrow */}
+            <div className="flex items-center gap-3 mb-4">
+              <ArrowRight size={18} className="text-foreground" />
+              <span className="text-sm font-medium uppercase tracking-wider text-foreground">
+                Industries
+              </span>
+            </div>
             <h2 className="font-serif text-4xl md:text-5xl text-foreground">
               Industries We Serve
             </h2>
           </div>
 
-          <div className="flex gap-2">
+          {/* Navigation Arrows */}
+          <div className="flex gap-2 self-end sm:self-start">
             <button
-              onClick={prevSlide}
-              className="w-10 h-10 border border-border flex items-center justify-center hover:bg-background transition-colors"
+              onClick={() => scroll('left')}
+              className="w-10 h-10 border border-foreground/20 rounded-sm flex items-center justify-center hover:bg-foreground/5 transition-colors"
               aria-label="Previous industry"
             >
-              <ChevronLeft size={20} />
+              <ArrowLeft size={18} />
             </button>
             <button
-              onClick={nextSlide}
-              className="w-10 h-10 border border-border flex items-center justify-center hover:bg-background transition-colors"
+              onClick={() => scroll('right')}
+              className="w-10 h-10 border border-foreground/20 rounded-sm flex items-center justify-center hover:bg-foreground/5 transition-colors"
               aria-label="Next industry"
             >
-              <ChevronRight size={20} />
+              <ArrowRight size={18} />
             </button>
           </div>
         </div>
 
-        {/* Industries Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        {/* Industries Carousel */}
+        <div 
+          ref={scrollContainerRef}
+          className="flex gap-4 overflow-x-auto scrollbar-hide pb-4 -mx-6 px-6 snap-x snap-mandatory"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
           {industries.map((industry, index) => (
             <motion.div
               key={industry.name}
@@ -66,25 +79,27 @@ export const IndustriesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative aspect-[4/5] overflow-hidden rounded-sm cursor-pointer"
+              className="group relative flex-shrink-0 w-[280px] md:w-[300px] aspect-[4/5] overflow-hidden rounded-sm cursor-pointer snap-start"
             >
               <img
                 src={industry.image}
                 alt={industry.name}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <span className="text-sm text-primary-foreground font-medium">
-                  {industry.name}
-                </span>
+              {/* White pill label at bottom */}
+              <div className="absolute bottom-4 left-4 right-4">
+                <div className="bg-background/95 backdrop-blur-sm rounded-full py-3 px-5 text-center shadow-soft">
+                  <span className="text-sm text-foreground font-medium">
+                    {industry.name}
+                  </span>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
 
         {/* View All Button */}
-        <div className="text-center">
+        <div className="text-center mt-10">
           <Button variant="default" asChild>
             <Link to="/industries">View all</Link>
           </Button>
