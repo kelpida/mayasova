@@ -66,7 +66,7 @@ export const ProcessSection = () => {
               >
                 <div className="flex items-center gap-4 mb-4">
                   {/* Icon */}
-                  <div className="w-14 h-14 shrink-0 border border-primary-foreground/30 rounded-full flex items-center justify-center">
+                  <div className="w-14 h-14 shrink-0 border border-primary-foreground/30 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-primary-foreground/60 hover:shadow-[0_0_20px_rgba(250,250,245,0.3)] cursor-pointer">
                     <step.icon size={24} strokeWidth={1.5} />
                   </div>
                   
@@ -106,7 +106,7 @@ export const ProcessSection = () => {
               >
                 <div className="flex items-center gap-4 mb-4">
                   {/* Icon */}
-                  <div className="w-14 h-14 shrink-0 border border-primary-foreground/30 rounded-full flex items-center justify-center">
+                  <div className="w-14 h-14 shrink-0 border border-primary-foreground/30 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-primary-foreground/60 hover:shadow-[0_0_20px_rgba(250,250,245,0.3)] cursor-pointer">
                     <step.icon size={24} strokeWidth={1.5} />
                   </div>
                   
@@ -145,7 +145,7 @@ export const ProcessSection = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="w-12 h-12 mx-auto mb-3 border border-primary-foreground/30 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 mx-auto mb-3 border border-primary-foreground/30 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-primary-foreground/60 hover:shadow-[0_0_20px_rgba(250,250,245,0.3)] cursor-pointer">
                   <step.icon size={20} strokeWidth={1.5} />
                 </div>
                 <h3 className="text-xs font-medium max-w-[100px]">
@@ -170,7 +170,7 @@ export const ProcessSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="w-12 h-12 mb-3 border border-primary-foreground/30 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 mb-3 border border-primary-foreground/30 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-primary-foreground/60 hover:shadow-[0_0_20px_rgba(250,250,245,0.3)] cursor-pointer">
                 <step.icon size={20} strokeWidth={1.5} />
               </div>
               <h3 className="text-sm font-medium mb-2">
