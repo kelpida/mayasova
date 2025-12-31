@@ -46,26 +46,28 @@ const Industries = () => {
       {/* Industries Grid */}
       <section className="py-12 pb-24 bg-background">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {industries.map((industry, index) => (
               <motion.div
                 key={industry.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative aspect-[4/3] overflow-hidden rounded-sm cursor-pointer"
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="group relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer"
               >
                 <img
                   src={industry.image}
                   alt={industry.name}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <span className="text-lg text-primary-foreground font-serif">
-                    {industry.name}
-                  </span>
+                {/* White pill label at bottom */}
+                <div className="absolute bottom-4 left-4 right-4 flex justify-center">
+                  <div className="bg-background/95 backdrop-blur-sm rounded-full py-3 px-6 shadow-soft max-w-[90%]">
+                    <span className="text-sm text-foreground font-medium text-center block">
+                      {industry.name}
+                    </span>
+                  </div>
                 </div>
               </motion.div>
             ))}
