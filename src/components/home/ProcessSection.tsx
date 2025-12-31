@@ -12,24 +12,14 @@ const processSteps = [
 
 const CurvedArrow = ({ className = '' }: { className?: string }) => (
   <svg 
-    viewBox="0 0 60 24" 
+    viewBox="0 0 221 53" 
     fill="none" 
-    className={`w-12 h-6 text-primary-foreground/40 ${className}`}
+    className={`w-16 h-5 ${className}`}
   >
     <path 
-      d="M2 12C2 12 15 2 30 12C45 22 58 12 58 12" 
-      stroke="currentColor" 
-      strokeWidth="1.5" 
-      strokeLinecap="round"
-      fill="none"
-    />
-    <path 
-      d="M52 8L58 12L52 16" 
-      stroke="currentColor" 
-      strokeWidth="1.5" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-      fill="none"
+      d="M220.622 22.2707C220.812 21.7524 220.547 21.1776 220.029 20.9868L211.583 17.8777C211.064 17.6869 210.49 17.9524 210.299 18.4707C210.108 18.989 210.373 19.5638 210.892 19.7546L218.399 22.5182L215.636 30.0257C215.445 30.544 215.71 31.1188 216.229 31.3096C216.747 31.5004 217.322 31.2349 217.512 30.7166L220.622 22.2707ZM0.683105 0.730225L-7.57575e-05 1.46047C33.8473 33.1262 65.3113 49.418 100.177 52.273C135.005 55.1249 173.073 44.5542 220.102 22.8331L219.683 21.9252L219.264 21.0174C172.341 42.6893 134.653 53.0894 100.34 50.2797C66.0655 47.4731 35.0053 31.4708 1.36629 -2.42591e-05L0.683105 0.730225Z" 
+      fill="currentColor"
+      className="text-primary-foreground/40"
     />
   </svg>
 );
