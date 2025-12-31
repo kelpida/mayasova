@@ -1,10 +1,13 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Layout } from '@/components/layout/Layout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail, Loader2 } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
 
 const staffTypes = [
   'Domestic Staff',
@@ -31,6 +34,85 @@ const offices = [
 ];
 
 const Contact = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    full_name: '',
+    phone: '',
+    email: '',
+    company_name: '',
+    staff_type: '',
+    message: '',
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSelectChange = (value: string) => {
+    setFormData(prev => ({ ...prev, staff_type: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Validate required fields
+    if (!formData.full_name.trim() || !formData.phone.trim() || !formData.email.trim()) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for contacting us. We'll get back to you soon.",
+      });
+
+      // Reset form
+      setFormData({
+        full_name: '',
+        phone: '',
+        email: '',
+        company_name: '',
+        staff_type: '',
+        message: '',
+      });
+    } catch (error: any) {
+      console.error('Submission error:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <Layout>
       {/* Hero */}
@@ -61,19 +143,27 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto bg-card border border-border rounded-sm p-8 md:p-12 shadow-soft"
           >
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <Input
+                    name="full_name"
+                    value={formData.full_name}
+                    onChange={handleInputChange}
                     placeholder="Full Name *"
                     className="h-12 border-border bg-background"
+                    required
                   />
                 </div>
                 <div>
                   <Input
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
                     placeholder="Phone Number *"
                     type="tel"
                     className="h-12 border-border bg-background"
+                    required
                   />
                 </div>
               </div>
@@ -81,13 +171,20 @@ const Contact = () => {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <Input
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     placeholder="Email Address *"
                     type="email"
                     className="h-12 border-border bg-background"
+                    required
                   />
                 </div>
                 <div>
                   <Input
+                    name="company_name"
+                    value={formData.company_name}
+                    onChange={handleInputChange}
                     placeholder="Company Name"
                     className="h-12 border-border bg-background"
                   />
@@ -96,13 +193,13 @@ const Contact = () => {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <Select>
+                  <Select value={formData.staff_type} onValueChange={handleSelectChange}>
                     <SelectTrigger className="h-12 border-border bg-background">
                       <SelectValue placeholder="What type of staff are you looking for?" />
                     </SelectTrigger>
                     <SelectContent>
                       {staffTypes.map((type) => (
-                        <SelectItem key={type} value={type.toLowerCase().replace(/\s+/g, '-')}>
+                        <SelectItem key={type} value={type}>
                           {type}
                         </SelectItem>
                       ))}
@@ -111,6 +208,9 @@ const Contact = () => {
                 </div>
                 <div>
                   <Textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
                     placeholder="Message"
                     className="min-h-[48px] border-border bg-background resize-none"
                     rows={1}
@@ -119,8 +219,15 @@ const Contact = () => {
               </div>
 
               <div className="text-center pt-4">
-                <Button type="submit" variant="default" size="lg">
-                  Submit
+                <Button type="submit" variant="default" size="lg" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    'Submit'
+                  )}
                 </Button>
               </div>
             </form>
