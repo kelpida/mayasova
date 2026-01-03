@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
@@ -14,9 +14,17 @@ const navLinks = [
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors ${
+        isHomePage 
+          ? 'bg-transparent' 
+          : 'bg-white border-b border-gray-200'
+      }`}
+    >
       <div className="container mx-auto px-6">
         <nav className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -24,7 +32,7 @@ export const Header = () => {
             <img 
               src={logo} 
               alt="Mayiasova - Private Employment Agency" 
-              className="h-8 sm:h-10 w-auto"
+              className={`h-8 sm:h-10 w-auto ${!isHomePage ? 'brightness-0' : ''}`}
             />
           </Link>
 
@@ -34,7 +42,11 @@ export const Header = () => {
               <Link
                 key={link.name}
                 to={link.href}
-                className="text-sm text-white/80 hover:text-white transition-colors link-underline"
+                className={`text-sm transition-colors link-underline ${
+                  isHomePage 
+                    ? 'text-white/80 hover:text-white' 
+                    : 'text-gray-600 hover:text-gray-900'
+                }`}
               >
                 {link.name}
               </Link>
@@ -44,7 +56,7 @@ export const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-white p-2"
+            className={`md:hidden p-2 ${isHomePage ? 'text-white' : 'text-gray-900'}`}
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -59,7 +71,11 @@ export const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-primary-dark border-t border-white/10"
+            className={`md:hidden border-t ${
+              isHomePage 
+                ? 'bg-primary-dark border-white/10' 
+                : 'bg-white border-gray-200'
+            }`}
           >
             <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -67,7 +83,11 @@ export const Header = () => {
                   key={link.name}
                   to={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-white/80 hover:text-white py-2 transition-colors"
+                  className={`py-2 transition-colors ${
+                    isHomePage 
+                      ? 'text-white/80 hover:text-white' 
+                      : 'text-gray-600 hover:text-gray-900'
+                  }`}
                 >
                   {link.name}
                 </Link>
