@@ -90,7 +90,7 @@ const Services = () => {
       {/* Services List with Hover Effects */}
       <section className="py-12 bg-background">
         <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-5xl mx-auto flex flex-col gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={service.id}
@@ -106,7 +106,7 @@ const Services = () => {
                 <div className="relative overflow-hidden">
                   {/* Background image collage that appears on hover */}
                   <motion.div
-                    className="absolute inset-x-4 inset-y-0 z-0 rounded-[15px] overflow-hidden"
+                    className="absolute inset-0 z-0 rounded-[15px] overflow-hidden"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ 
                       opacity: activeService === service.id ? 1 : 0,
