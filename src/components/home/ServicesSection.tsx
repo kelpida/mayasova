@@ -78,10 +78,10 @@ export const ServicesSection = () => {
               onMouseEnter={() => setActiveService(service.id)}
               onMouseLeave={() => setActiveService(null)}
             >
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden rounded-[15px]">
                 {/* Background image collage that appears on hover */}
                 <motion.div
-                  className="absolute inset-x-2 inset-y-0 z-0 rounded-[15px] overflow-hidden"
+                  className="absolute inset-0 z-0 overflow-hidden"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ 
                     opacity: activeService === service.id ? 1 : 0,
@@ -114,7 +114,7 @@ export const ServicesSection = () => {
 
                 {/* Content */}
                 <motion.div 
-                  className="relative py-6 flex items-center justify-between z-20"
+                  className="relative py-6 px-6 flex items-center justify-between z-20"
                   animate={{
                     paddingTop: activeService === service.id ? 40 : 24,
                     paddingBottom: activeService === service.id ? 40 : 24,
