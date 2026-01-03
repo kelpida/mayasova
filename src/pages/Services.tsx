@@ -194,19 +194,7 @@ const Services = () => {
         <DialogContent className="max-w-2xl p-0 overflow-hidden">
           {selectedService && (
             <>
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={selectedService.image}
-                  alt={selectedService.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent" />
-                <div className="absolute bottom-4 left-6 right-6">
-                  <span className="text-primary-foreground/60 text-sm font-medium">
-                    {selectedService.id}.
-                  </span>
-                </div>
-              </div>
+      
               <div className="p-6 pt-4">
                 <DialogHeader>
                   <DialogTitle className="font-serif text-2xl md:text-3xl text-foreground">

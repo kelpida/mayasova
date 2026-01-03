@@ -63,7 +63,7 @@ const Industries = () => {
                 />
                 {/* White pill label at bottom */}
                 <div className="absolute bottom-4 left-4 right-4 flex justify-center">
-                  <div className="bg-background/95 backdrop-blur-sm rounded-full py-3 px-6 shadow-soft max-w-[90%]">
+                  <div className="bg-background/95 backdrop-blur-sm rounded-lg py-3 px-6 shadow-soft max-w-[90%]">
                     <span className="text-sm text-foreground font-medium text-center block">
                       {industry.name}
                     </span>

@@ -145,7 +145,7 @@
 
   /* All text uses Albert Sans */
   h1, h2, h3, h4, h5, h6, p, span, a, li, label, button, input, textarea {
-    font-family: var(--font-sans);
+    font-family: var(--font-sans) !important;
   }
 
   h1, h2, h3, h4, h5, h6 {

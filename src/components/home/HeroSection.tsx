@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import bakeryImage from '@/assets/bakery.jpg';
-import chefImage from '@/assets/chef.jpg';
+import hero1 from '@/assets/hero1.jpg';
+import hero2 from '@/assets/hero2.jpg';
 
 export const HeroSection = () => {
   return (
@@ -20,8 +20,8 @@ export const HeroSection = () => {
                 125deg, 
                 hsl(145 17% 19%) 0%, 
                 hsl(145 17% 19%) 30%, 
-                hsl(140 19% 36% / 0.38) 30%, 
-                hsl(140 19% 36% / 0.25) 55%, 
+                hsl(140 19% 36% / 0.25) 30%, 
+                hsl(140 19% 36% / 0.38) 55%, 
                 hsl(145 17% 19%) 55%, 
                 hsl(145 17% 19%) 100%
               )
@@ -42,7 +42,7 @@ export const HeroSection = () => {
           >
             <div className="w-36 h-44 sm:w-44 sm:h-52 lg:w-48 lg:h-56 rounded-sm overflow-hidden shadow-hover">
               <img
-                src={bakeryImage}
+                src={hero1}
                 alt="Professional at work"
                 className="w-full h-full object-cover"
               />
@@ -94,7 +94,7 @@ export const HeroSection = () => {
           >
             <div className="w-48 h-40 lg:w-56 lg:h-44 rounded-sm overflow-hidden shadow-hover">
               <img
-                src={chefImage}
+                src={hero2}
                 alt="Professional chef"
                 className="w-full h-full object-cover"
               />

@@ -88,7 +88,7 @@ export const IndustriesSection = () => {
               />
               {/* White pill label at bottom */}
               <div className="absolute bottom-4 left-4 right-4">
-                <div className="bg-background/95 backdrop-blur-sm rounded-full py-3 px-5 text-center shadow-soft">
+                <div className="bg-background/95 backdrop-blur-sm rounded-lg py-3 px-5 text-center shadow-soft">
                   <span className="text-sm text-foreground font-medium">
                     {industry.name}
                   </span>

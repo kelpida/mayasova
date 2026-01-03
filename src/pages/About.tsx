@@ -124,7 +124,7 @@ const About = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="flex items-start gap-4 p-6 bg-secondary rounded-sm"
               >
-                <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <div className="w-6 h-6 bg-primary rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Check size={14} className="text-primary-foreground" />
                 </div>
                 <p className="text-foreground/80">{reason}</p>
