@@ -103,17 +103,25 @@ const Services = () => {
                 onMouseLeave={() => setActiveService(null)}
                 onClick={() => handleServiceClick(service)}
               >
-                <div className="relative overflow-hidden rounded-[15px]">
+                <div className="relative overflow-hidden">
                   {/* Background image collage that appears on hover */}
                   <motion.div
-                    className="absolute inset-0 z-0"
-                    initial={{ opacity: 0 }}
+                    className="absolute inset-x-4 inset-y-0 z-0 rounded-[15px] overflow-hidden"
+                    initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ 
                       opacity: activeService === service.id ? 1 : 0,
+                      scale: activeService === service.id ? 1 : 0.95,
                     }}
-                    transition={{ duration: 0.4 }}
+                    transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                   >
-                    <div className="w-full h-full flex">
+                    <motion.div 
+                      className="w-full h-full flex"
+                      initial={{ x: -20 }}
+                      animate={{ 
+                        x: activeService === service.id ? 0 : -20,
+                      }}
+                      transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                    >
                       {/* Multiple images in a row */}
                       {services.map((s, i) => (
                         <div key={i} className="flex-1 h-full">
@@ -124,47 +132,77 @@ const Services = () => {
                           />
                         </div>
                       ))}
-                    </div>
+                    </motion.div>
                     {/* Gray overlay */}
                     <div className="absolute inset-0 bg-gray-500/60" />
                   </motion.div>
 
                   {/* Content */}
                   <motion.div 
-                    className="relative py-6 flex items-center justify-between z-20"
+                    className="relative py-6 flex items-center z-20"
                     animate={{
                       paddingTop: activeService === service.id ? 40 : 24,
                       paddingBottom: activeService === service.id ? 40 : 24,
+                      justifyContent: activeService === service.id ? 'center' : 'space-between',
                     }}
                     transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                   >
-                    <div className="flex items-center gap-8">
-                      <motion.span 
-                        className="text-sm font-medium min-w-[40px]"
-                        animate={{
-                          color: activeService === service.id ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 45%)',
-                        }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        {service.id}.
-                      </motion.span>
-                      <motion.h3 
-                        className="font-serif text-xl md:text-2xl"
-                        animate={{
-                          color: activeService === service.id ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 20%)',
-                        }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        {service.title}
-                      </motion.h3>
-                    </div>
-
-                    <motion.div
-                      className="flex items-center gap-2 text-sm font-medium uppercase tracking-wide underline underline-offset-4"
-                      animate={{ 
-                        color: activeService === service.id ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 20%)',
+                    {/* Left content - hidden on hover */}
+                    <motion.div 
+                      className="flex items-center gap-8"
+                      animate={{
+                        opacity: activeService === service.id ? 0 : 1,
+                        x: activeService === service.id ? -20 : 0,
                       }}
                       transition={{ duration: 0.3 }}
+                      style={{ 
+                        position: activeService === service.id ? 'absolute' : 'relative',
+                        left: activeService === service.id ? 0 : 'auto',
+                      }}
+                    >
+                      <span className="text-sm font-medium min-w-[40px] text-muted-foreground">
+                        {service.id}.
+                      </span>
+                      <h3 className="font-serif text-xl md:text-2xl text-foreground">
+                        {service.title}
+                      </h3>
+                    </motion.div>
+
+                    {/* Center content - visible on hover */}
+                    <motion.div
+                      className="flex flex-col items-center gap-2"
+                      animate={{
+                        opacity: activeService === service.id ? 1 : 0,
+                        scale: activeService === service.id ? 1 : 0.9,
+                      }}
+                      transition={{ duration: 0.3, delay: activeService === service.id ? 0.1 : 0 }}
+                      style={{ 
+                        position: activeService === service.id ? 'relative' : 'absolute',
+                      }}
+                    >
+                      <span className="text-sm font-medium text-white/80">
+                        {service.id}.
+                      </span>
+                      <h3 className="font-serif text-2xl md:text-3xl text-white text-center">
+                        {service.title}
+                      </h3>
+                      <span className="text-sm font-medium uppercase tracking-wide underline underline-offset-4 text-white mt-2">
+                        View Details
+                      </span>
+                    </motion.div>
+
+                    {/* Right content - hidden on hover */}
+                    <motion.div
+                      className="text-sm font-medium uppercase tracking-wide underline underline-offset-4 text-foreground"
+                      animate={{ 
+                        opacity: activeService === service.id ? 0 : 1,
+                        x: activeService === service.id ? 20 : 0,
+                      }}
+                      transition={{ duration: 0.3 }}
+                      style={{ 
+                        position: activeService === service.id ? 'absolute' : 'relative',
+                        right: activeService === service.id ? 0 : 'auto',
+                      }}
                     >
                       <span>View Details</span>
                     </motion.div>
