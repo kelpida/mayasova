@@ -139,70 +139,45 @@ const Services = () => {
 
                   {/* Content */}
                   <motion.div 
-                    className="relative py-6 flex items-center z-20"
+                    className="relative py-6 flex items-center justify-between z-20"
                     animate={{
                       paddingTop: activeService === service.id ? 40 : 24,
                       paddingBottom: activeService === service.id ? 40 : 24,
-                      justifyContent: activeService === service.id ? 'center' : 'space-between',
                     }}
                     transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                   >
-                    {/* Left content - hidden on hover */}
-                    <motion.div 
-                      className="flex items-center gap-8"
+                    {/* Number - stays on left */}
+                    <motion.span 
+                      className="text-sm font-medium min-w-[40px]"
                       animate={{
-                        opacity: activeService === service.id ? 0 : 1,
-                        x: activeService === service.id ? -20 : 0,
+                        color: activeService === service.id ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 45%)',
                       }}
                       transition={{ duration: 0.3 }}
-                      style={{ 
-                        position: activeService === service.id ? 'absolute' : 'relative',
-                        left: activeService === service.id ? 0 : 'auto',
-                      }}
                     >
-                      <span className="text-sm font-medium min-w-[40px] text-muted-foreground">
-                        {service.id}.
-                      </span>
-                      <h3 className="font-serif text-xl md:text-2xl text-foreground">
-                        {service.title}
-                      </h3>
-                    </motion.div>
+                      {service.id}.
+                    </motion.span>
 
-                    {/* Center content - visible on hover */}
-                    <motion.div
-                      className="flex flex-col items-center gap-2"
+                    {/* Title - centers on hover */}
+                    <motion.h3 
+                      className="font-serif text-xl md:text-2xl absolute left-12"
                       animate={{
-                        opacity: activeService === service.id ? 1 : 0,
-                        scale: activeService === service.id ? 1 : 0.9,
+                        color: activeService === service.id ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 20%)',
+                        left: activeService === service.id ? '50%' : '48px',
+                        x: activeService === service.id ? '-50%' : '0%',
+                        scale: activeService === service.id ? 1.1 : 1,
                       }}
-                      transition={{ duration: 0.3, delay: activeService === service.id ? 0.1 : 0 }}
-                      style={{ 
-                        position: activeService === service.id ? 'relative' : 'absolute',
-                      }}
+                      transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                     >
-                      <span className="text-sm font-medium text-white/80">
-                        {service.id}.
-                      </span>
-                      <h3 className="font-serif text-2xl md:text-3xl text-white text-center">
-                        {service.title}
-                      </h3>
-                      <span className="text-sm font-medium uppercase tracking-wide underline underline-offset-4 text-white mt-2">
-                        View Details
-                      </span>
-                    </motion.div>
+                      {service.title}
+                    </motion.h3>
 
-                    {/* Right content - hidden on hover */}
+                    {/* View Details - stays on right */}
                     <motion.div
-                      className="text-sm font-medium uppercase tracking-wide underline underline-offset-4 text-foreground"
+                      className="text-sm font-medium uppercase tracking-wide underline underline-offset-4"
                       animate={{ 
-                        opacity: activeService === service.id ? 0 : 1,
-                        x: activeService === service.id ? 20 : 0,
+                        color: activeService === service.id ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 20%)',
                       }}
                       transition={{ duration: 0.3 }}
-                      style={{ 
-                        position: activeService === service.id ? 'absolute' : 'relative',
-                        right: activeService === service.id ? 0 : 'auto',
-                      }}
                     >
                       <span>View Details</span>
                     </motion.div>
