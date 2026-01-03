@@ -103,43 +103,46 @@ const Services = () => {
                 onMouseLeave={() => setActiveService(null)}
                 onClick={() => handleServiceClick(service)}
               >
-                <div className="relative">
-                  {/* Full-width image that appears on hover */}
-                  <AnimatePresence>
-                    {activeService === service.id && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 300 }}
-                        exit={{ opacity: 0, height: 0 }}
-                        transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                        className="absolute inset-x-0 top-0 w-full overflow-hidden rounded-[15px] z-0"
-                      >
-                        <img
-                          src={service.image}
-                          alt={service.title}
-                          className="w-full h-[300px] object-cover rounded-[15px]"
-                        />
-                        {/* Overlay for text readability */}
-                        <div className="absolute inset-0 bg-black/40 rounded-[15px]" />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                <div className="relative overflow-hidden rounded-[15px]">
+                  {/* Background image collage that appears on hover */}
+                  <motion.div
+                    className="absolute inset-0 z-0"
+                    initial={{ opacity: 0 }}
+                    animate={{ 
+                      opacity: activeService === service.id ? 1 : 0,
+                    }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <div className="w-full h-full flex">
+                      {/* Multiple images in a row */}
+                      {services.map((s, i) => (
+                        <div key={i} className="flex-1 h-full">
+                          <img
+                            src={s.image}
+                            alt=""
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    {/* Gray overlay */}
+                    <div className="absolute inset-0 bg-gray-500/60" />
+                  </motion.div>
 
                   {/* Content */}
                   <motion.div 
-                    className="relative py-8 flex items-center justify-between z-20"
+                    className="relative py-6 flex items-center justify-between z-20"
                     animate={{
-                      height: activeService === service.id ? 300 : 'auto',
-                      alignItems: activeService === service.id ? 'flex-end' : 'center',
-                      paddingBottom: activeService === service.id ? 32 : 32,
+                      paddingTop: activeService === service.id ? 40 : 24,
+                      paddingBottom: activeService === service.id ? 40 : 24,
                     }}
-                    transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                    transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                   >
                     <div className="flex items-center gap-8">
                       <motion.span 
                         className="text-sm font-medium min-w-[40px]"
                         animate={{
-                          color: activeService === service.id ? 'hsl(0, 0%, 100%)' : 'hsl(var(--muted-foreground))',
+                          color: activeService === service.id ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 45%)',
                         }}
                         transition={{ duration: 0.3 }}
                       >
@@ -148,7 +151,7 @@ const Services = () => {
                       <motion.h3 
                         className="font-serif text-xl md:text-2xl"
                         animate={{
-                          color: activeService === service.id ? 'hsl(0, 0%, 100%)' : 'hsl(var(--foreground))',
+                          color: activeService === service.id ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 20%)',
                         }}
                         transition={{ duration: 0.3 }}
                       >
@@ -157,15 +160,13 @@ const Services = () => {
                     </div>
 
                     <motion.div
-                      className="flex items-center gap-2 text-sm font-medium uppercase tracking-wide"
+                      className="flex items-center gap-2 text-sm font-medium uppercase tracking-wide underline underline-offset-4"
                       animate={{ 
-                        opacity: activeService === service.id ? 1 : 0,
-                        color: activeService === service.id ? 'hsl(0, 0%, 100%)' : 'hsl(var(--foreground))',
+                        color: activeService === service.id ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 20%)',
                       }}
                       transition={{ duration: 0.3 }}
                     >
-                      <span className="hidden sm:inline">View Details</span>
-                      <ArrowRight size={16} />
+                      <span>View Details</span>
                     </motion.div>
                   </motion.div>
                 </div>
