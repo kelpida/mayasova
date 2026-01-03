@@ -14,12 +14,29 @@ export const AboutSection = () => {
     <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left Content */}
+          {/* Left Image - First Column */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative"
+          >
+            <div className="rounded-sm overflow-hidden shadow-medium">
+              <img
+                src={businessWoman}
+                alt="Business professional"
+                className="w-full h-[400px] object-cover"
+              />
+            </div>
+          </motion.div>
+
+          {/* Right Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p className="section-label mb-6">About Us</p>
             
@@ -37,7 +54,7 @@ export const AboutSection = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                   className="text-center sm:text-left"
                 >
                   <span className="stat-number text-foreground">{stat.number}</span>
@@ -51,23 +68,6 @@ export const AboutSection = () => {
             <Button variant="default" asChild>
               <Link to="/about">learn more</Link>
             </Button>
-          </motion.div>
-
-          {/* Right Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
-          >
-            <div className="rounded-sm overflow-hidden shadow-medium">
-              <img
-                src={businessWoman}
-                alt="Business professional"
-                className="w-full h-[400px] object-cover"
-              />
-            </div>
           </motion.div>
         </div>
       </div>
