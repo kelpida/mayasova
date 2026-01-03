@@ -6,7 +6,7 @@ import chefImage from '@/assets/chef.jpg';
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden -mt-16 pt-16">
       {/* Diagonal gradient background */}
       <div className="absolute inset-0">
         {/* Base dark green - rgba(41, 58, 48, 1) */}
