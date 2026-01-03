@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Albert Sans', 'system-ui', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -22,6 +25,13 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          dark: "hsl(var(--primary-dark))",
+          "dark-foreground": "hsl(var(--primary-dark-foreground))",
+        },
+        green: {
+          light: "hsl(var(--green-light))",
+          "light-38": "hsl(var(--green-light-38))",
+          "light-25": "hsl(var(--green-light-25))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
