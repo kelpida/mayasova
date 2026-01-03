@@ -112,38 +112,62 @@ const Services = () => {
                         animate={{ opacity: 1, height: 300 }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                        className="w-full overflow-hidden rounded-[15px]"
+                        className="absolute inset-x-0 top-0 w-full overflow-hidden rounded-[15px] z-0"
                       >
                         <img
                           src={service.image}
                           alt={service.title}
                           className="w-full h-[300px] object-cover rounded-[15px]"
                         />
+                        {/* Overlay for text readability */}
+                        <div className="absolute inset-0 bg-black/40 rounded-[15px]" />
                       </motion.div>
                     )}
                   </AnimatePresence>
 
                   {/* Content */}
-                  <div className="relative py-8 flex items-center justify-between z-20">
+                  <motion.div 
+                    className="relative py-8 flex items-center justify-between z-20"
+                    animate={{
+                      height: activeService === service.id ? 300 : 'auto',
+                      alignItems: activeService === service.id ? 'flex-end' : 'center',
+                      paddingBottom: activeService === service.id ? 32 : 32,
+                    }}
+                    transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                  >
                     <div className="flex items-center gap-8">
-                      <span className="text-sm font-medium min-w-[40px] text-muted-foreground">
+                      <motion.span 
+                        className="text-sm font-medium min-w-[40px]"
+                        animate={{
+                          color: activeService === service.id ? 'hsl(0, 0%, 100%)' : 'hsl(var(--muted-foreground))',
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
                         {service.id}.
-                      </span>
-                      <h3 className="font-serif text-xl md:text-2xl text-foreground">
+                      </motion.span>
+                      <motion.h3 
+                        className="font-serif text-xl md:text-2xl"
+                        animate={{
+                          color: activeService === service.id ? 'hsl(0, 0%, 100%)' : 'hsl(var(--foreground))',
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
                         {service.title}
-                      </h3>
+                      </motion.h3>
                     </div>
 
                     <motion.div
-                      className="flex items-center gap-2 text-sm font-medium uppercase tracking-wide text-foreground"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: activeService === service.id ? 1 : 0 }}
+                      className="flex items-center gap-2 text-sm font-medium uppercase tracking-wide"
+                      animate={{ 
+                        opacity: activeService === service.id ? 1 : 0,
+                        color: activeService === service.id ? 'hsl(0, 0%, 100%)' : 'hsl(var(--foreground))',
+                      }}
                       transition={{ duration: 0.3 }}
                     >
                       <span className="hidden sm:inline">View Details</span>
                       <ArrowRight size={16} />
                     </motion.div>
-                  </div>
+                  </motion.div>
                 </div>
               </motion.div>
             ))}
