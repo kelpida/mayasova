@@ -143,8 +143,12 @@
     font-family: var(--font-sans);
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  /* All text uses Albert Sans */
+  h1, h2, h3, h4, h5, h6, p, span, a, li, label, button, input, textarea {
     font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
   }
 }
