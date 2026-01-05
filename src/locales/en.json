@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "industries": "Industries",
+    "about": "About Us",
+    "contact": "Contact Us"
+  },
+  "hero": {
+    "title": "Trusted Staffing Solutions for Cyprus",
+    "subtitle": "Professional domestic and commercial staff placement services with over 25 years of expertise",
+    "cta": "Get Started"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Mayiasova Services is a licensed recruitment agency with over 25 years of experience providing trusted domestic and professional staff through a careful, reliable, and legally compliant process.",
+    "stat_years": "Years of Experience",
+    "stat_clients": "Satisfied Clients",
+    "stat_placements": "Successful Placements",
+    "expertise_title": "Our Expertise",
+    "expertise_desc": "With decades of experience, we've perfected the art of matching the right staff with the right families and businesses. Our commitment to quality, reliability, and legal compliance has made us Cyprus' most trusted staffing agency."
+  },
+  "services": {
+    "title": "Services",
+    "service_01": "Recruitment & Talent Matching",
+    "service_01_desc": "We identify the best candidates for your specific needs through our extensive network across partner countries. Our team works closely with you to understand your requirements, culture, and expectations to find the perfect match for your organization or household.",
+    "service_02": "CV Screening",
+    "service_02_desc": "Thorough review and assessment of candidate qualifications, experience, and suitability for your requirements. We verify credentials, check references, and ensure that only the most qualified candidates are presented to you.",
+    "service_03": "Interview Coordination",
+    "service_03_desc": "We arrange and coordinate interviews between employers and candidates, handling all logistics. This includes scheduling, video call setup for remote interviews, and providing guidance on interview best practices.",
+    "service_04": "Legal & Immigration Paperwork",
+    "service_04_desc": "Complete handling of all legal documentation, work permits, and immigration requirements. Our legal experts ensure full compliance with Cyprus employment law and EU regulations, making the process smooth and stress-free.",
+    "service_05": "Training for Domestic Workers",
+    "service_05_desc": "Comprehensive training programs to prepare workers for their specific roles and responsibilities. Training covers professional skills, cultural integration, language basics, and household management practices.",
+    "service_06": "Post-Placement Support",
+    "service_06_desc": "Ongoing support for both employers and employees after placement to ensure satisfaction. We provide regular check-ins, conflict resolution assistance, and replacement guarantees within the first three months."
+  },
+  "industries": {
+    "title": "Industries",
+    "subtitle": "Specialized staffing solutions across multiple sectors"
+  },
+  "process": {
+    "step_1": "Client needs assessment",
+    "step_1_desc": "We identify your role requirements and expectations.",
+    "step_2": "CV Collection & Screening",
+    "step_2_desc": "We gather and assess candidate profiles from trusted partners.",
+    "step_3": "Interview process",
+    "step_3_desc": "We conduct first interviews and coordinate employer discussions.",
+    "step_4": "Legal Paperwork",
+    "step_4_desc": "We manage all contracts, permits, and immigration documents.",
+    "step_5": "Staff Training",
+    "step_5_desc": "Domestic workers receive essential role-specific training.",
+    "step_6": "Ongoing Support",
+    "step_6_desc": "We stay connected to ensure smooth, long-term cooperation."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our team",
+    "form_name": "Full Name",
+    "form_email": "Email Address",
+    "form_phone": "Phone Number",
+    "form_staff_type": "Type of Staff Needed",
+    "form_message": "Message",
+    "form_submit": "Send Message",
+    "form_success": "Message sent successfully! We'll get back to you soon.",
+    "form_error": "Failed to send message. Please try again.",
+    "location": "Location",
+    "phone": "Phone",
+    "email": "Email"
+  },
+  "footer": {
+    "description": "Trusted staffing solutions for Cyprus",
+    "quick_links": "Quick Links",
+    "contact_info": "Contact Info",
+    "all_rights": "All rights reserved."
+  },
+  "common": {
+    "view_details": "View Details",
+    "learn_more": "Learn More",
+    "close": "Close",
+    "back": "Back",
+    "menu": "Menu",
+    "language": "Language"
+  }
+}

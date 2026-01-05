@@ -1,19 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin } from 'lucide-react';
-
-const footerLinks = {
-  navigation: [
-    { name: 'Home', href: '/' },
-    { name: 'Services', href: '/services' },
-    { name: 'Industries', href: '/industries' },
-    { name: 'About us', href: '/about' },
-    { name: 'Contact us', href: '/contact' },
-  ],
-  legal: [
-    { name: 'Terms & Conditions', href: '/terms' },
-    { name: 'Cookie Policy', href: '/cookies' },
-  ],
-};
+import { useTranslation } from 'react-i18next';
 
 const contactInfo = {
   address: '4 Kamelias Street,\nEkali, 3110 Limassol,\nCyprus',
@@ -22,6 +9,21 @@ const contactInfo = {
 };
 
 export const Footer = () => {
+  const { t } = useTranslation();
+
+  const footerLinks = {
+    navigation: [
+      { name: t('nav.home'), href: '/' },
+      { name: t('nav.services'), href: '/services' },
+      { name: t('nav.industries'), href: '/industries' },
+      { name: t('nav.about'), href: '/about' },
+      { name: t('nav.contact'), href: '/contact' },
+    ],
+    legal: [
+      { name: 'Terms & Conditions', href: '/terms' },
+      { name: 'Cookie Policy', href: '/cookies' },
+    ],
+  };
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-6 py-16">

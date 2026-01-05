@@ -1,21 +1,24 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import logo from '@/assets/mayasova-logo.svg';
-
-const navLinks = [
-  { name: 'Services', href: '/services' },
-  { name: 'Industries', href: '/industries' },
-  { name: 'About Us', href: '/about' },
-  { name: 'Contact Us', href: '/contact' },
-];
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { MobileMenu } from './MobileMenu';
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+  const { t } = useTranslation();
+
+  const navLinks = [
+    { name: t('nav.services'), href: '/services' },
+    { name: t('nav.industries'), href: '/industries' },
+    { name: t('nav.about'), href: '/about' },
+    { name: t('nav.contact'), href: '/contact' },
+  ];
 
   return (
     <header 
@@ -51,54 +54,30 @@ export const Header = () => {
                 {link.name}
               </Link>
             ))}
+            <LanguageSwitcher isLight={isHomePage} />
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`md:hidden p-2 ${isHomePage ? 'text-white' : 'text-gray-900'}`}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden flex items-center gap-4">
+            <LanguageSwitcher isLight={isHomePage} />
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className={`p-2 ${isHomePage ? 'text-white' : 'text-gray-900'}`}
+              aria-label="Toggle menu"
+            >
+              <Menu size={24} />
+            </button>
+          </div>
         </nav>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className={`md:hidden border-t ${
-              isHomePage 
-                ? 'bg-primary-dark border-white/10' 
-                : 'bg-white border-gray-200'
-            }`}
-          >
-            <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`py-2 transition-colors ${
-                    isHomePage 
-                      ? 'text-white/80 hover:text-white' 
-                      : 'text-gray-600 hover:text-gray-900'
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
-              <Button variant="gold" className="mt-4">
-                Request Staff
-              </Button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Mobile Menu Off-canvas */}
+      <MobileMenu
+        isOpen={mobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
+        navLinks={navLinks}
+        isHomePage={isHomePage}
+      />
     </header>
   );
 };
