@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Layout } from '@/components/layout/Layout';
 import { CTASection } from '@/components/home/CTASection';
+import { SEO } from '@/components/seo/SEO';
 
 import hotelStaff from '@/assets/hotel-staff.jpg';
 import bakery from '@/assets/bakery.jpg';
@@ -24,6 +25,12 @@ const industries = [
 const Industries = () => {
   return (
     <Layout>
+      <SEO
+        title="Industries We Serve"
+        description="Staffing solutions for Cyprus's leading industries: hotels, restaurants, bakeries, spas, construction, supermarkets, factories, and private households."
+        keywords="hotel staffing cyprus, restaurant staff recruitment, bakery workers, spa wellness staff, construction workers cyprus, domestic staff"
+        canonicalUrl="/industries"
+      />
       {/* Hero */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-6 text-center">

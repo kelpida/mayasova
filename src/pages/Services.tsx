@@ -5,6 +5,7 @@ import { Layout } from '@/components/layout/Layout';
 import { CTASection } from '@/components/home/CTASection';
 import { ProcessSection } from '@/components/home/ProcessSection';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { SEO } from '@/components/seo/SEO';
 
 import heroImage from '@/assets/hero-handshake.jpg';
 import businessWoman from '@/assets/business-woman.jpg';
@@ -69,6 +70,12 @@ const Services = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Recruitment Services"
+        description="Professional recruitment services in Cyprus including CV screening, interview coordination, legal paperwork, and post-placement support for domestic and professional staff."
+        keywords="recruitment services cyprus, cv screening, interview coordination, immigration paperwork cyprus, domestic worker training"
+        canonicalUrl="/services"
+      />
       {/* Hero */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-6 text-center">

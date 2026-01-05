@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Layout } from '@/components/layout/Layout';
 import { CTASection } from '@/components/home/CTASection';
 import { Check } from 'lucide-react';
+import { SEO } from '@/components/seo/SEO';
 
 import businessWoman from '@/assets/business-woman.jpg';
 
@@ -28,6 +29,12 @@ const partners = [
 const About = () => {
   return (
     <Layout>
+      <SEO
+        title="About Us"
+        description="Learn about Mayiasova Services - a licensed Cyprus recruitment agency with 25+ years experience. Offices in Limassol and Nicosia serving the hospitality, domestic, and professional sectors."
+        keywords="about mayiasova, cyprus employment agency, recruitment agency limassol nicosia, licensed recruitment agency cyprus"
+        canonicalUrl="/about"
+      />
       {/* Hero */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-6 text-center">

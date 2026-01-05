@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { MapPin, Phone, Mail, Loader2 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useToast } from '@/hooks/use-toast';
+import { SEO } from '@/components/seo/SEO';
 
 const staffTypes = [
   'Domestic Staff',
@@ -115,6 +116,12 @@ const Contact = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Contact Us"
+        description="Get in touch with Mayiasova Services. Visit our offices in Limassol and Nicosia or contact us for professional and domestic staff recruitment in Cyprus."
+        keywords="contact mayiasova, recruitment agency contact, limassol office, nicosia office, cyprus employment agency phone"
+        canonicalUrl="/contact"
+      />
       {/* Hero */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-6 text-center">
