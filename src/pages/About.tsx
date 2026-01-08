@@ -114,7 +114,7 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center md:mb-16"
           >
             <h2 className="font-serif text-4xl md:text-5xl text-foreground">
               Why Employers Trust Mayiasova

@@ -96,7 +96,7 @@ const Services = () => {
 
       {/* Services List with Hover Effects */}
       <section className="py-12 bg-background">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto md:px-6 p-0">
           <div className="max-w-5xl mx-auto flex flex-col gap-6">
             {services.map((service, index) => (
               <motion.div
@@ -146,7 +146,7 @@ const Services = () => {
 
                   {/* Content */}
                   <motion.div 
-                    className="relative py-6 px-6 flex items-center justify-between z-20"
+                    className="relative md:py-6 md:px-6 flex items-center justify-between z-20"
                     animate={{
                       paddingTop: activeService === service.id ? 40 : 24,
                       paddingBottom: activeService === service.id ? 40 : 24,
@@ -180,7 +180,7 @@ const Services = () => {
 
                     {/* View Details - stays on right */}
                     <motion.div
-                      className="text-sm font-medium uppercase tracking-wide underline underline-offset-4"
+                      className="text-sm font-medium uppercase tracking-wide underline underline-offset-4 md:block hidden"
                       animate={{ 
                         color: activeService === service.id ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 20%)',
                       }}

@@ -30,7 +30,7 @@ export const HeroSection = () => {
         />
       </div>
 
-      <div className="container mx-auto px-6 py-16 relative z-10">
+      <div className="container mx-auto px-6 md:py-24 py-16 relative z-10">
         {/* Main content area */}
         <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12">
           {/* Left Image */}
@@ -54,7 +54,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
-            className="flex-1"
+            className="flex-1 lg:px-24"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white leading-[1.1] mb-8 lg:mb-10 font-light tracking-tight">
               Helping<br />

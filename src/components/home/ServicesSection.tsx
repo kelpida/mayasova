@@ -69,7 +69,7 @@ export const ServicesSection = () => {
     <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center md:mb-16">
           <p className="section-label justify-center mb-4">Services</p>
           <h2 className="font-serif text-4xl md:text-5xl text-foreground">
             Passion for People,
@@ -79,7 +79,7 @@ export const ServicesSection = () => {
         </div>
    {/* Services List with Hover Effects */}
       <section className="py-12 bg-background">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto md:px-6 p-0">
           <div className="max-w-5xl mx-auto flex flex-col gap-6">
             {services.map((service, index) => (
               <motion.div
@@ -129,7 +129,7 @@ export const ServicesSection = () => {
 
                   {/* Content */}
                   <motion.div 
-                    className="relative py-6 px-6 flex items-center justify-between z-20"
+                    className="relative md:py-6 md:px-6 flex items-center justify-between z-20"
                     animate={{
                       paddingTop: activeService === service.id ? 40 : 24,
                       paddingBottom: activeService === service.id ? 40 : 24,
@@ -163,7 +163,7 @@ export const ServicesSection = () => {
 
                     {/* View Details - stays on right */}
                     <motion.div
-                      className="text-sm font-medium uppercase tracking-wide underline underline-offset-4"
+                      className="text-sm font-medium uppercase tracking-wide underline underline-offset-4 md:block hidden"
                       animate={{ 
                         color: activeService === service.id ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 20%)',
                       }}

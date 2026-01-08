@@ -250,7 +250,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-serif text-4xl text-center text-foreground mb-16"
+            className="font-serif text-4xl text-center text-foreground md:mb-16"
           >
             Our Offices
           </motion.h2>

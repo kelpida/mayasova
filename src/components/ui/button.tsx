@@ -20,7 +20,7 @@ const buttonVariants = cva(
         "hero-outline": "border border-primary-foreground/40 bg-transparent text-primary-foreground hover:bg-primary-foreground/10",
       },
       size: {
-        default: "h-11 px-6 py-2",
+        default: "h-11 px-8 py-2",
         sm: "h-9 px-4",
         lg: "h-12 px-8 text-base",
         xl: "h-14 px-10 text-base",
