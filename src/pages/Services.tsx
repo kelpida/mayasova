@@ -96,7 +96,7 @@ const Services = () => {
 
       {/* Services List with Hover Effects */}
       <section className="py-12 bg-background">
-        <div className="container mx-auto md:px-6 p-0">
+        <div className="container mx-auto md:px-6 px-4">
           <div className="max-w-5xl mx-auto flex flex-col gap-6">
             {services.map((service, index) => (
               <motion.div
