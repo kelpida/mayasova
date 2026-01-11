@@ -301,6 +301,10 @@ const Contact = () => {
               <Mail size={20} className="text-primary-foreground/60" />
               <span>vasileiana.law@hotmail.com</span>
             </div>
+             <div className="flex items-center gap-3">
+              <Mail size={20} className="text-primary-foreground/60" />
+              <span>si730@hotmail.com</span>
+            </div>
           </div>
         </div>
       </section>

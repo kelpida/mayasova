@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 
 const contactInfo = {
   address: '4 Kamelias Street,\nEkali, 3110 Limassol,\nCyprus',
-  phones: ['+357 25 334 477', '+357 99 531 212', '+357 99 694 045'],
-  email: 'vasileiana.law@hotmail.com',
+  phones: ['+357 25 334 477', '+357 99 531 212', '+357 99 594 945'],
+  email: [ 'vasileiana.law@hotmail.com', 'si730@hotmail.com'],
 };
 
 export const Footer = () => {

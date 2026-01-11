@@ -12,8 +12,8 @@ interface MobileMenuProps {
 
 const contactInfo = {
   address: '4 Kamelias Street, Ekali, 3110 Limassol, Cyprus',
-  phones: ['+357 25 334 477', '+357 99 531 212', '+357 99 694 045'],
-  email: 'vasileiana.law@hotmail.com',
+  phones: ['+357 25 334 477', '+357 99 531 212', '+357 99 594 945'],
+  email: [ 'vasileiana.law@hotmail.com', 'si730@hotmail.com'],
 };
 
 const socialLinks = [
