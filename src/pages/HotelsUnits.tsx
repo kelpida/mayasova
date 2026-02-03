@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { Layout } from '@/components/layout/Layout';
 import { CTASection } from '@/components/home/CTASection';
 import { SEO } from '@/components/seo/SEO';
-import { ShareButtons } from '@/components/ui/share-buttons';
 import hotelStaff from '@/assets/hotel-staff.jpg';
 
 const HotelsUnits = () => {
@@ -35,26 +34,18 @@ const HotelsUnits = () => {
 
       {/* Hero */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-center"
           >
             <h1 className="font-serif text-5xl md:text-6xl text-foreground mb-6">
               {t('hotelsUnits.title')}
             </h1>
-            <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+            <p className="text-muted-foreground max-w-2xl mx-auto">
               {t('hotelsUnits.subtitle')}
             </p>
-            <div className="flex justify-center">
-              <ShareButtons
-                url="/hotels-units"
-                title={t('hotelsUnits.title')}
-                description={t('hotelsUnits.subtitle')}
-              />
-            </div>
           </motion.div>
         </div>
       </section>
