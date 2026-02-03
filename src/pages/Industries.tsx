@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import { CTASection } from '@/components/home/CTASection';
 import { SEO } from '@/components/seo/SEO';
@@ -6,9 +7,7 @@ import { SEO } from '@/components/seo/SEO';
 import hotelStaff from '@/assets/hotel-staff.jpg';
 import bakery from '@/assets/bakery.jpg';
 import spaWellness from '@/assets/spa-wellness.jpg';
-import chef from '@/assets/chef.jpg';
 import businessWoman from '@/assets/business-woman.jpg';
-import heroImage from '@/assets/hero-handshake.jpg';
 
 const industries = [
   {
@@ -30,69 +29,45 @@ const industries = [
       'Massage therapists, receptionists, cleaners, and spa attendants.',
   },
   {
-    name: 'Supermarkets',
-    image: businessWoman,
-    description:
-      'Cashiers, shelf stackers, warehouse staff, and delivery drivers.',
-  },
-  {
-    name: 'Restaurants, Food & Beverage',
-    image: chef,
-    description:
-      'Chefs, kitchen staff, waiters, bartenders, and food runners.',
-  },
-  {
-    name: 'Construction Companies & Property Developers',
-    image: heroImage,
-    description:
-      'Labourers, electricians, plumbers, site supervisors, and engineers.',
-  },
-  {
-    name: 'Wineries & Rural Production Units',
-    image: bakery,
-    description:
-      'Harvesting crews, packers, production workers, and warehouse staff.',
-  },
-  {
     name: 'Factories & Industrial Units',
-    image: hotelStaff,
+    image: businessWoman,
     description:
       'Machine operators, production staff, quality control, and warehouse workers.',
   },
   {
-    name: 'Personal Clients & Domestic Workers & Nannies',
-    image: spaWellness,
-    description:
-      'Live-in and live-out domestic staff, cleaners, carers, and nannies.',
-  },
-  {
     name: 'Petrol Stations & Car Wash',
-    image: spaWellness,
+    image: businessWoman,
     description:
       'Cashiers, attendants, cleaners, and forecourt supervisors.',
-  },
-  {
-    name: 'Supermarket & Kiosks',
-    image: spaWellness,
-    description:
-      'Retail assistants, stock handlers, and counter staff.',
-  },
-  {
-    name: 'Mechanics & Car Mechanics',
-    image: spaWellness,
-    description:
-      'Technicians, helpers, and garage support staff.',
   },
 ];
 
 const Industries = () => {
+  const navigate = useNavigate();
+
+  const handleIndustryClick = (industryName: string) => {
+    if (industryName === 'Hotel units & hotel chains') {
+      navigate('/hotels-units');
+    } else if (industryName === 'Bakeries') {
+      navigate('/bakeries-patisseries');
+    } else if (industryName === 'Spas & wellness centres') {
+      navigate('/spa-wellness');
+    } else if (industryName === 'Factories & Industrial Units') {
+      navigate('/plastic-factories');
+    } else if (industryName === 'Petrol Stations & Car Wash') {
+      navigate('/petrol-station-car-wash');
+    }
+  };
+
   return (
     <Layout>
       <SEO
         title="Industries We Serve"
-        description="Staffing solutions for Cyprus's leading industries: hotels, restaurants, bakeries, spas, construction, supermarkets, factories, and private households."
-        keywords="hotel staffing cyprus, restaurant staff recruitment, bakery workers, spa wellness staff, construction workers cyprus, domestic staff"
+        description="Browse staffing solutions across multiple industries in Cyprus: hotels, bakeries, spas, factories, and petrol stations. Professional recruitment for specialized positions."
+        keywords="industry staffing, hotel recruitment, bakery staff, spa positions, factory workers, petrol station jobs cyprus"
         canonicalUrl="/industries"
+        ogImage="https://mayasova.chameleon.page/images/og-industries.png"
+        author="Mayiasova Services"
       />
 
       {/* Hero */}
@@ -126,6 +101,7 @@ const Industries = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="group relative h-[260px] md:h-[300px] lg:h-[320px] overflow-hidden rounded-lg cursor-pointer"
+                onClick={() => handleIndustryClick(industry.name)}
               >
                 <img
                   src={industry.image}

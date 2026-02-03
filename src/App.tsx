@@ -8,6 +8,11 @@ import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Industries from "./pages/Industries";
+import HotelsUnits from "./pages/HotelsUnits";
+import BakeriesPatisseries from "./pages/BakeriesPatisseries";
+import SpaWellness from "./pages/SpaWellness";
+import PlasticFactories from "./pages/PlasticFactories";
+import PetrolStationCarWash from "./pages/PetrolStationCarWash";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -21,6 +26,11 @@ const AppContent = () => {
       <Route path="/" element={<Index />} />
       <Route path="/services" element={<Services />} />
       <Route path="/industries" element={<Industries />} />
+      <Route path="/hotels-units" element={<HotelsUnits />} />
+      <Route path="/bakeries-patisseries" element={<BakeriesPatisseries />} />
+      <Route path="/spa-wellness" element={<SpaWellness />} />
+      <Route path="/plastic-factories" element={<PlasticFactories />} />
+      <Route path="/petrol-station-car-wash" element={<PetrolStationCarWash />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

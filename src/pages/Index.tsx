@@ -5,7 +5,8 @@ import { IndustriesSection } from '@/components/home/IndustriesSection';
 import { ServicesSection } from '@/components/home/ServicesSection';
 import { ProcessSection } from '@/components/home/ProcessSection';
 import { CTASection } from '@/components/home/CTASection';
-import { SEO, organizationSchema } from '@/components/seo/SEO';
+import { SEO } from '@/components/seo/SEO';
+import { organizationSchema } from '@/components/seo/schemas';
 
 const Index = () => {
   return (

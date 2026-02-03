@@ -74,6 +74,13 @@
     "contact_info": "Contact Info",
     "all_rights": "All rights reserved."
   },
+  "cta": {
+    "label": "Contact Us",
+    "title": "Let's Find the Right",
+    "title_line2": "Staff for You",
+    "description": "Whether you need domestic or professional personnel, our team is here to help you every step of the way.",
+    "button": "Request Staff"
+  },
   "common": {
     "view_details": "View Details",
     "learn_more": "Learn More",
@@ -81,5 +88,66 @@
     "back": "Back",
     "menu": "Menu",
     "language": "Language"
+  },
+  "hotelsUnits": {
+    "title": "Hotel Units Positions",
+    "subtitle": "Explore our available positions in hospitality and hotel management.",
+    "availablePositions": "Available Positions",
+    "position_1": "A Chef de Partie",
+    "position_2": "Barman / Barwoman",
+    "position_3": "Cashiers",
+    "position_4": "Chefs / Japanese Chefs / Chinese Chefs / Asian Chefs",
+    "position_5": "Cook A / Cook B / Cook C",
+    "position_6": "Engineer, Machinist, Mechanical Engineer",
+    "position_7": "Gardeners",
+    "position_8": "Housekeepers",
+    "position_9": "Kitchen Assistants / Kitchen Helpers",
+    "position_10": "Kitchen Cleaners",
+    "position_11": "Lifeguards",
+    "position_12": "Pastry Chef A / Pastry Chef B / Pastry Chef C / Helpers Pastry Chefs",
+    "position_13": "Receptionists / Night Receptionists",
+    "position_14": "Thai Masseurs / Spa Therapists",
+    "position_15": "Waiters / Waitresses for the bars and the restaurants of the Hotel"
+  },
+  "bakeriesPatisseries": {
+    "title": "Bakeries and Patisseries Positions",
+    "subtitle": "Explore our available positions in bakery and pastry production.",
+    "availablePositions": "Available Positions",
+    "position_1": "Chefs / Cooks",
+    "position_2": "HVAC Technician",
+    "position_3": "Kitchen Cleaners / Cleaners",
+    "position_4": "Pastry Chefs",
+    "position_5": "Sales Woman / Sales Man"
+  },
+  "spaWellness": {
+    "title": "Spa and Wellness Centres Positions",
+    "subtitle": "Explore our available positions in spa and wellness services.",
+    "availablePositions": "Available Positions",
+    "position_1": "Masseurs",
+    "position_2": "Spa Therapists",
+    "position_3": "Thai Therapists",
+    "position_4": "Receptionist",
+    "position_5": "Cleaners"
+  },
+  "plasticFactories": {
+    "title": "Plastic Factories Positions",
+    "subtitle": "Explore our available positions in plastic manufacturing and production.",
+    "availablePositions": "Available Positions",
+    "position_1": "Machinery Maintainers",
+    "position_2": "Machine Operators",
+    "position_3": "Turners",
+    "position_4": "Workers",
+    "position_5": "Cleaners"
+  },
+  "petrolStationCarWash": {
+    "title": "Petrol Stations and Car Wash Positions",
+    "subtitle": "Explore our available positions in petrol stations and car wash services.",
+    "availablePositions": "Available Positions",
+    "position_1": "Petrol and Gas Station Attendants",
+    "position_2": "Laundry Assistant",
+    "position_3": "Laundry Attendant",
+    "position_4": "Laundry Operator",
+    "position_5": "Receptionists",
+    "position_6": "Cleaners"
   }
 }

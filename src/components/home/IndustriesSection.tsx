@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -7,17 +8,19 @@ import { Link } from 'react-router-dom';
 import hotelStaff from '@/assets/hotel-staff.jpg';
 import bakery from '@/assets/bakery.jpg';
 import spaWellness from '@/assets/spa-wellness.jpg';
-import chef from '@/assets/chef.jpg';
+import businessWoman from '@/assets/business-woman.jpg';
 
 const industries = [
   { name: 'Hotel units & hotel chains', image: hotelStaff },
   { name: 'Bakeries', image: bakery },
   { name: 'Spas & wellness centres', image: spaWellness },
-  { name: 'Restaurants', image: chef },
+  { name: 'Factories & Industrial Units', image: businessWoman },
+  { name: 'Petrol Stations & Car Wash', image: businessWoman },
 ];
 
 export const IndustriesSection = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -26,6 +29,20 @@ export const IndustriesSection = () => {
         left: direction === 'left' ? -scrollAmount : scrollAmount,
         behavior: 'smooth',
       });
+    }
+  };
+
+  const handleIndustryClick = (industryName: string) => {
+    if (industryName === 'Hotel units & hotel chains') {
+      navigate('/hotels-units');
+    } else if (industryName === 'Bakeries') {
+      navigate('/bakeries-patisseries');
+    } else if (industryName === 'Spas & wellness centres') {
+      navigate('/spa-wellness');
+    } else if (industryName === 'Factories & Industrial Units') {
+      navigate('/plastic-factories');
+    } else if (industryName === 'Petrol Stations & Car Wash') {
+      navigate('/petrol-station-car-wash');
     }
   };
 
@@ -80,6 +97,7 @@ export const IndustriesSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group relative flex-shrink-0 w-[280px] md:w-[300px] aspect-[4/5] overflow-hidden rounded-sm cursor-pointer snap-start"
+              onClick={() => handleIndustryClick(industry.name)}
             >
               <img
                 src={industry.image}

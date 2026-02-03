@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
 export const CTASection = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-8">
@@ -14,11 +17,11 @@ export const CTASection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="section-label mb-4">Contact Us</p>
+            <p className="section-label mb-4">{t('cta.label')}</p>
             <h2 className="font-serif text-4xl md:text-5xl text-foreground leading-tight">
-              Let's Find the Right
+              {t('cta.title')}
               <br />
-              Staff for You
+              {t('cta.title_line2')}
             </h2>
           </motion.div>
 
@@ -31,11 +34,10 @@ export const CTASection = () => {
             className="md:text-right"
           >
             <p className="text-muted-foreground mb-6 max-w-md md:ml-auto">
-              Whether you need domestic or professional personnel, our team is here to help you 
-              every step of the way.
+              {t('cta.description')}
             </p>
             <Button variant="outline" size="lg" asChild>
-              <Link to="/contact">Request Staff</Link>
+              <Link to="/contact">{t('cta.button')}</Link>
             </Button>
           </motion.div>
         </div>
