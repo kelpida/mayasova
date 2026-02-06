@@ -53,7 +53,7 @@ const Industries = () => {
     } else if (industryName === 'Spas & wellness centres') {
       navigate('/spa-wellness');
     } else if (industryName === 'Factories & Industrial Units') {
-      navigate('/plastic-factories');
+      navigate('/factories-industrial-units');
     } else if (industryName === 'Petrol Stations & Car Wash') {
       navigate('/petrol-station-car-wash');
     }

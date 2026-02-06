@@ -92,7 +92,7 @@
   "hotelsUnits": {
     "title": "Hotel Units Positions",
     "subtitle": "Explore our available positions in hospitality and hotel management.",
-    "availablePositions": "Available Positions",
+    "availablePositions": "Positions",
     "position_1": "A Chef de Partie",
     "position_2": "Barman / Barwoman",
     "position_3": "Cashiers",
@@ -112,7 +112,7 @@
   "bakeriesPatisseries": {
     "title": "Bakeries and Patisseries Positions",
     "subtitle": "Explore our available positions in bakery and pastry production.",
-    "availablePositions": "Available Positions",
+    "availablePositions": "Positions",
     "position_1": "Chefs / Cooks",
     "position_2": "HVAC Technician",
     "position_3": "Kitchen Cleaners / Cleaners",
@@ -122,17 +122,35 @@
   "spaWellness": {
     "title": "Spa and Wellness Centres Positions",
     "subtitle": "Explore our available positions in spa and wellness services.",
-    "availablePositions": "Available Positions",
+    "availablePositions": "Positions",
     "position_1": "Masseurs",
     "position_2": "Spa Therapists",
     "position_3": "Thai Therapists",
     "position_4": "Receptionist",
     "position_5": "Cleaners"
   },
+  "factoriesIndustrialUnits": {
+    "title": "Factories & Industrial Units",
+    "subtitle": "Explore staffing options across core factory and industrial unit categories.",
+    "availablePositions": "Positions",
+    "position_1": "Aluminium Factories",
+    "position_2": "Marbles Factories",
+    "position_3": "Plastic Factories",
+    "position_4": "Warehouse"
+  },
+  "aluminiumFactories": {
+    "title": "Aluminium Factories Positions",
+    "subtitle": "Explore our available positions in aluminium factories and metal fabrication.",
+    "availablePositions": "Positions",
+    "position_1": "CO2 Welders",
+    "position_2": "Multi-Form Fastener Robotic Machine Operators",
+    "position_3": "Aluminum Craftsmen",
+    "position_4": "Metal Construction Technicians"
+  },
   "plasticFactories": {
     "title": "Plastic Factories Positions",
     "subtitle": "Explore our available positions in plastic manufacturing and production.",
-    "availablePositions": "Available Positions",
+    "availablePositions": "Positions",
     "position_1": "Machinery Maintainers",
     "position_2": "Machine Operators",
     "position_3": "Turners",
@@ -142,7 +160,7 @@
   "petrolStationCarWash": {
     "title": "Petrol Stations and Car Wash Positions",
     "subtitle": "Explore our available positions in petrol stations and car wash services.",
-    "availablePositions": "Available Positions",
+    "availablePositions": "Positions",
     "position_1": "Petrol and Gas Station Attendants",
     "position_2": "Laundry Assistant",
     "position_3": "Laundry Attendant",
