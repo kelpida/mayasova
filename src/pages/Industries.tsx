@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import { CTASection } from '@/components/home/CTASection';
@@ -9,53 +10,64 @@ import bakery from '@/assets/bakery.jpg';
 import spaWellness from '@/assets/spa-wellness.jpg';
 import businessWoman from '@/assets/business-woman.jpg';
 
-const industries = [
-  {
-    name: 'Hotel units & hotel chains',
-    image: hotelStaff,
-    description:
-      'Housekeeping, front desk, chefs, waiters, maintenance, and seasonal hotel staff.',
-  },
-  {
-    name: 'Bakeries',
-    image: bakery,
-    description:
-      'Bakers, assistants, packers, cleaners, and production line workers.',
-  },
-  {
-    name: 'Spas & wellness centres',
-    image: spaWellness,
-    description:
-      'Massage therapists, receptionists, cleaners, and spa attendants.',
-  },
-  {
-    name: 'Factories & Industrial Units',
-    image: businessWoman,
-    description:
-      'Machine operators, production staff, quality control, and warehouse workers.',
-  },
-  {
-    name: 'Petrol Stations & Car Wash',
-    image: businessWoman,
-    description:
-      'Cashiers, attendants, cleaners, and forecourt supervisors.',
-  },
-];
-
 const Industries = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const handleIndustryClick = (industryName: string) => {
-    if (industryName === 'Hotel units & hotel chains') {
-      navigate('/hotels-units');
-    } else if (industryName === 'Bakeries') {
-      navigate('/bakeries-patisseries');
-    } else if (industryName === 'Spas & wellness centres') {
-      navigate('/spa-wellness');
-    } else if (industryName === 'Factories & Industrial Units') {
-      navigate('/factories-industrial-units');
-    } else if (industryName === 'Petrol Stations & Car Wash') {
-      navigate('/petrol-station-car-wash');
+  const industries = [
+    {
+      key: 'factories',
+      name: t('industriesList.factories.name'),
+      description: t('industriesList.factories.desc'),
+      image: businessWoman,
+      href: '/factories-industrial-units',
+    },
+    {
+      key: 'hotels',
+      name: t('industriesList.hotels.name'),
+      description: t('industriesList.hotels.desc'),
+      image: hotelStaff,
+      href: '/hotels-units',
+    },
+    {
+      key: 'petrol',
+      name: t('industriesList.petrol.name'),
+      description: t('industriesList.petrol.desc'),
+      image: businessWoman,
+      href: '/petrol-station-car-wash',
+    },
+    {
+      key: 'garage',
+      name: t('industriesList.garage.name'),
+      description: t('industriesList.garage.desc'),
+      image: businessWoman,
+      href: '/garage-car-repair',
+    },
+    {
+      key: 'spa',
+      name: t('industriesList.spa.name'),
+      description: t('industriesList.spa.desc'),
+      image: spaWellness,
+      href: '/spa-wellness',
+    },
+    {
+      key: 'bakeries',
+      name: t('industriesList.bakeries.name'),
+      description: t('industriesList.bakeries.desc'),
+      image: bakery,
+      href: '/bakeries-patisseries',
+    },
+    {
+      key: 'restaurants',
+      name: t('industriesList.restaurants.name'),
+      description: t('industriesList.restaurants.desc'),
+      image: businessWoman,
+    },
+  ];
+
+  const handleIndustryClick = (href?: string) => {
+    if (href) {
+      navigate(href);
     }
   };
 
@@ -95,13 +107,13 @@ const Industries = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 auto-rows-fr">
             {industries.map((industry, index) => (
               <motion.div
-                key={industry.name}
+                key={industry.key}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="group relative h-[260px] md:h-[300px] lg:h-[320px] overflow-hidden rounded-lg cursor-pointer"
-                onClick={() => handleIndustryClick(industry.name)}
+                onClick={() => handleIndustryClick(industry.href)}
               >
                 <img
                   src={industry.image}

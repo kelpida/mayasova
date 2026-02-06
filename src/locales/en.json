@@ -39,6 +39,36 @@
     "title": "Industries",
     "subtitle": "Specialized staffing solutions across multiple sectors"
   },
+  "industriesList": {
+    "factories": {
+      "name": "Factories & Industrial Units",
+      "desc": "Machine operators, production staff, quality control, and warehouse workers."
+    },
+    "hotels": {
+      "name": "Hotel Units",
+      "desc": "Housekeeping, front desk, chefs, waiters, maintenance, and seasonal hotel staff."
+    },
+    "petrol": {
+      "name": "Petrol Stations & Car Wash",
+      "desc": "Cashiers, attendants, cleaners, and forecourt supervisors."
+    },
+    "garage": {
+      "name": "Garage - Cars Repair",
+      "desc": "Body paint assistants, body straightener assistants, and workshop support staff."
+    },
+    "spa": {
+      "name": "Spa & Wellness Center",
+      "desc": "Massage therapists, receptionists, cleaners, and spa attendants."
+    },
+    "bakeries": {
+      "name": "Bakeries & Pastry Shops",
+      "desc": "Bakers, assistants, packers, cleaners, and production line workers."
+    },
+    "restaurants": {
+      "name": "Restaurants & Bars",
+      "desc": "Chefs, cooks, bar staff, waiters, and restaurant support teams."
+    }
+  },
   "process": {
     "step_1": "Client needs assessment",
     "step_1_desc": "We identify your role requirements and expectations.",
@@ -146,6 +176,13 @@
     "position_2": "Multi-Form Fastener Robotic Machine Operators",
     "position_3": "Aluminum Craftsmen",
     "position_4": "Metal Construction Technicians"
+  },
+  "garageCarRepair": {
+    "title": "Garage - Car Repair",
+    "subtitle": "Explore available positions in garage and car repair services.",
+    "availablePositions": "Positions",
+    "position_1": "Specialised Assistant Body Paint Technicians",
+    "position_2": "Specialized Assistant Body Straightener Technicians"
   },
   "plasticFactories": {
     "title": "Plastic Factories Positions",

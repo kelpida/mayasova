@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
@@ -10,17 +11,54 @@ import bakery from '@/assets/bakery.jpg';
 import spaWellness from '@/assets/spa-wellness.jpg';
 import businessWoman from '@/assets/business-woman.jpg';
 
-const industries = [
-  { name: 'Hotel units & hotel chains', image: hotelStaff },
-  { name: 'Bakeries', image: bakery },
-  { name: 'Spas & wellness centres', image: spaWellness },
-  { name: 'Factories & Industrial Units', image: businessWoman },
-  { name: 'Petrol Stations & Car Wash', image: businessWoman },
-];
-
 export const IndustriesSection = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const industries = [
+    {
+      key: 'factories',
+      name: t('industriesList.factories.name'),
+      image: businessWoman,
+      href: '/factories-industrial-units',
+    },
+    {
+      key: 'hotels',
+      name: t('industriesList.hotels.name'),
+      image: hotelStaff,
+      href: '/hotels-units',
+    },
+    {
+      key: 'petrol',
+      name: t('industriesList.petrol.name'),
+      image: businessWoman,
+      href: '/petrol-station-car-wash',
+    },
+    {
+      key: 'garage',
+      name: t('industriesList.garage.name'),
+      image: businessWoman,
+      href: '/garage-car-repair',
+    },
+    {
+      key: 'spa',
+      name: t('industriesList.spa.name'),
+      image: spaWellness,
+      href: '/spa-wellness',
+    },
+    {
+      key: 'bakeries',
+      name: t('industriesList.bakeries.name'),
+      image: bakery,
+      href: '/bakeries-patisseries',
+    },
+    {
+      key: 'restaurants',
+      name: t('industriesList.restaurants.name'),
+      image: businessWoman,
+    },
+  ];
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -32,17 +70,9 @@ export const IndustriesSection = () => {
     }
   };
 
-  const handleIndustryClick = (industryName: string) => {
-    if (industryName === 'Hotel units & hotel chains') {
-      navigate('/hotels-units');
-    } else if (industryName === 'Bakeries') {
-      navigate('/bakeries-patisseries');
-    } else if (industryName === 'Spas & wellness centres') {
-      navigate('/spa-wellness');
-    } else if (industryName === 'Factories & Industrial Units') {
-      navigate('/factories-industrial-units');
-    } else if (industryName === 'Petrol Stations & Car Wash') {
-      navigate('/petrol-station-car-wash');
+  const handleIndustryClick = (href?: string) => {
+    if (href) {
+      navigate(href);
     }
   };
 
@@ -91,13 +121,13 @@ export const IndustriesSection = () => {
         >
           {industries.map((industry, index) => (
             <motion.div
-              key={industry.name}
+              key={industry.key}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="group relative flex-shrink-0 w-[280px] md:w-[300px] aspect-[4/5] overflow-hidden rounded-sm cursor-pointer snap-start"
-              onClick={() => handleIndustryClick(industry.name)}
+              onClick={() => handleIndustryClick(industry.href)}
             >
               <img
                 src={industry.image}

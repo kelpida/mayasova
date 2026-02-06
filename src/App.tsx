@@ -14,6 +14,7 @@ import SpaWellness from "./pages/SpaWellness";
 import PlasticFactories from "./pages/PlasticFactories";
 import FactoriesIndustrialUnits from "./pages/FactoriesIndustrialUnits";
 import AluminiumFactories from "./pages/AluminiumFactories";
+import GarageCarRepair from "./pages/GarageCarRepair";
 import PetrolStationCarWash from "./pages/PetrolStationCarWash";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -33,6 +34,7 @@ const AppContent = () => {
       <Route path="/spa-wellness" element={<SpaWellness />} />
       <Route path="/factories-industrial-units" element={<FactoriesIndustrialUnits />} />
       <Route path="/aluminium-factories" element={<AluminiumFactories />} />
+      <Route path="/garage-car-repair" element={<GarageCarRepair />} />
       <Route path="/plastic-factories" element={<PlasticFactories />} />
       <Route path="/petrol-station-car-wash" element={<PetrolStationCarWash />} />
       <Route path="/about" element={<About />} />
